@@ -8,5 +8,6 @@
     },
     "bin": {
         "shenv" : "./shenv.sh"
-    }
+    },
+    "license": "MIT"
 }
