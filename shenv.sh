@@ -1,11 +1,5 @@
 #!/bin/sh
 
-# from passed environment files generate export statements to be "eval"ed
-#
-# example:    eval $(./env.sh .env .env.dist)
-#
-# expects passed environment files to comply the dotenv project rules https://github.com/motdotla/dotenv/blob/fdd0923e82e12a6e29b65898990201857141e75d/README.md#rules
-
 if [ "$1" == "-o" ]; then
   # overwrite existing exported environment variables
   overwriteEnv=1
@@ -62,6 +56,6 @@ while [ -n "$1" ]; do
     value=$(printf '%s\n' "$value" | sed 's| |\\ |g' | sed -e :a -e $'$!N;s|\\n|$\'\\\\n\'|;ta')
     
     # create line 'export <key>=<escaped value>'
-    printf '%s\n' ${env}export\ ${key}=${value}
+    printf '%s\n' export\ ${key}=${value}
   done
 done
