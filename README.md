@@ -3,6 +3,12 @@ Posix compatible shell script that makes loading environment variables from mult
 
 Environment files are a handy way in local development to define the configurable values. They are important to the concept of the 12 factor app. Within node development the [npm dotenv package](https://www.npmjs.com/package/dotenv) makes loading multiple of such files easy while not overwriting values from the host environment. However loading such files in a shell environment is tricky. This utility shell script makes that easy.
 
+## Install
+
+```
+npm install shenv
+```
+
 ## Usage
 Set up of example host environment and .env files.
 ```
