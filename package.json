@@ -1,0 +1,12 @@
+{
+	"name": "shenv",
+	"description": "Posix compatible shell script that makes loading environment variables from multiple .env files easy, while respecting ones already set.",
+	"version": "0.1.0",
+    "repository": {
+        "type" : "git",
+        "url" : "https://github.com/CoursePark/shenv.git"
+    },
+    "bin": {
+        "shenv" : "./shenv.sh"
+    }
+}
