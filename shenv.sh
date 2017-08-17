@@ -51,9 +51,9 @@ while [ -n "$1" ]; do
       value=$(printf '%s' "$value" | sed 's|^"\(.*\)"$|\1|' | sed 's|\\"|"|g' | sed 's|\\n|\'$'\n''|g')
     fi fi
     # escape
-    #   <space> to \<space>
+    #   everything that isn't a-z, A-Z, 0-9
     #   <newline> to $'\n'
-    value=$(printf '%s\n' "$value" | sed 's| |\\ |g' | sed -e :a -e $'$!N;s|\\n|$\'\\\\n\'|;ta')
+    value=$(printf '%s' "$value" | sed 's|\([^a-zA-Z0-9]\)|\\\1|g' | sed -e :a -e $'$!N;s|\\n|$\'\\\\n\'|;ta')
     
     # create line 'export <key>=<escaped value>'
     printf '%s\n' export\ ${key}=${value}
